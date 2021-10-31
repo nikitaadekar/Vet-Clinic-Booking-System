@@ -259,7 +259,7 @@
 ### Should Be Done
 
 🟡 _&nbsp;   US 2.01 - View History
-🟡 _&nbsp;   US 2.02 - Multiplet Pets
+🟡 _&nbsp;   US 2.02 - Multiple Pets
 🟡 _&nbsp;   US 2.05 - Reminders
 
 🟡 _&nbsp;   US 3.02 - Filter Bookings
