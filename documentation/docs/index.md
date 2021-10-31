@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+## SUMMARY
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+This project is build for Vet Clinics to manage their database and book appointments with their Clients. 
 
-## Commands
+## Technologies
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+The Frontend will be built using React.js .
+The Backend will be built using Node.js and Express.js . 
 
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+The Website will be hosted on Cybera. 
