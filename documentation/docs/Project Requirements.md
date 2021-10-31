@@ -224,7 +224,7 @@
 
 - Be able to see a graph in dashboard with weekly sales growth data.
 
-#### US 3.12 - Add staff's availability
+#### US 3.12 - Add/Delete Service Booking
 
 🟡 _&nbsp; Should be done_
 > As an admin, I want to be able to add/ delete servicces for booking.
@@ -241,3 +241,53 @@
 ##### Acceptance Criteria
 
 - Be able to reply to messages sent by users in user dashboard from admin dashboard.
+
+
+## MoSCOW Breakdown
+
+#### Must Be Done
+
+🟢 _&nbsp;  US 1.01 - Navigation
+🟢 _&nbsp;  US 1.02 - Landing Page
+🟢 _&nbsp;  US 1.03 - Account
+🟢 _&nbsp;  US 1.04 - Login
+🟢 _&nbsp;  US 1.06 - Booking Service
+
+
+🟢 _&nbsp;   US 3.01 - View Bookings
+
+### Should Be Done
+
+🟡 _&nbsp;   US 2.01 - View History
+🟡 _&nbsp;   US 2.02 - Multiplet Pets
+🟡 _&nbsp;   US 2.05 - Reminders
+
+🟡 _&nbsp;   US 3.02 - Filter Bookings
+🟡 _&nbsp;   US 3.03 - Search Client Profile
+🟡 _&nbsp;   US 3.04 - View Appointments in a Calendar Format
+🟡 _&nbsp;   US 3.05 - Availability
+🟡 _&nbsp;   US 3.10 - Filter Sales Info
+🟡 _&nbsp;   US 3.12 - Add/Delete Service Booking
+
+
+
+### Could Be Done
+
+🟠 _&nbsp;  US 1.05 - Logout
+
+🟠 _&nbsp;  US 2.03 - Filter Appointments
+
+🟠 _&nbsp;  US 3.06 - Add Staff
+🟠 _&nbsp;  US 3.07 - Add Staff's Availability
+🟠 _&nbsp;  US 3.08 - Each Staff's Calendar
+🟠 _&nbsp;  US 3.11 - Graph of Sales
+
+
+
+### Would Like But Won't Get
+
+🔴 _&nbsp;  US 2.04 - Payment Method
+🔴 _&nbsp;  US 2.06 - Client Side Chat
+
+🔴 _&nbsp;  US 3.09 - Sales Info
+🔴 _&nbsp;  US 3.13 - Admin Side Chat
