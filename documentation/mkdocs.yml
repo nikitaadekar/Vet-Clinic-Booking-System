@@ -1,0 +1,12 @@
+site_name: My Docs
+
+theme:
+  name: gitbook
+
+nav:
+    - About: index.md 
+    - Client Meeting Minutes: Client Meeting Minutes.md
+    - Project Management: Project Management.md
+    - Project Requirements: Project Requirements.md
+    - Software Design Requirements: Software Design Requirements.md
+    
