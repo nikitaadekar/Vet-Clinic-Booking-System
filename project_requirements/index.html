@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Project Requirements - Vet Clinic Booking System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Project Requirements";
+    var mkdocs_page_input_path = "project_requirements.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Vet Clinic Booking System</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">About</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../client_meeting_minutes/">Client Meeting Minutes</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../project_management/">Project Management</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Project Requirements</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#website">Website</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#us-101-navigation">US 1.01 -  Navigation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-102-landing-page">US 1.02 -  Landing Page</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_1">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-103-account">US 1.03 -  Account</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_2">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-104-login">US 1.04 -  Login</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_3">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-105-logout">US 1.05 -  Logout</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_4">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-106-booking-service">US 1.06 -  Booking Service</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_5">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#client-dashboard">Client Dashboard</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#us-201-view-history">US 2.01 - View History</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_6">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-202-multiple-pets">US 2.02 - Multiple Pets</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_7">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-203-filter-appointments">US 2.03 - Filter Appointments</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_8">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-204-payment-method">US 2.04 - Payment Method</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_9">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-205-reminders">US 2.05 - Reminders</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_10">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-206-client-side-chat">US 2.06 -  Client side Chat</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_11">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#admin-dashboard">Admin Dashboard</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#us-301-view-bookings">US 3.01 - View bookings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_12">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-302-filter-bookings">US 3.02 - Filter bookings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_13">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-303-search-client-profile">US 3.03 - Search client profile</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_14">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-304-view-appointments-in-a-calendar-format">US 3.04 - View appointments in a Calendar format</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_15">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-305-availability">US 3.05 - Availability</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_16">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-306-add-staff">US 3.06 - Add staff</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_17">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-307-add-staffs-availability">US 3.07 - Add staff's availability</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_18">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-308-view-each-staffs-calendar">US 3.08 - View each staff's calendar</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_19">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-309-sales-info">US 3.09 - Sales info</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_20">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-310-filter-sales-info">US 3.10 - Filter sales info</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_21">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-311-graph-of-sales">US 3.11  - Graph of sales</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_22">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-312-adddelete-service-booking">US 3.12 - Add/Delete Service Booking</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_23">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#us-313-admin-side-chat">US 3.13 - Admin side Chat</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#acceptance-criteria_24">Acceptance Criteria</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../software_design_requirements/">Software Design Requirements</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Vet Clinic Booking System</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Project Requirements</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="user-stories">User Stories</h2>
+<h3 id="website">Website</h3>
+<h4 id="us-101-navigation">US 1.01 -  Navigation</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to navigate through the website.</p>
+</blockquote>
+<h5 id="acceptance-criteria">Acceptance Criteria</h5>
+<ul>
+<li>Be able to navigate through the website.</li>
+</ul>
+<h4 id="us-102-landing-page">US 1.02 -  Landing Page</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to view a landing page with all info of the business.</p>
+</blockquote>
+<h5 id="acceptance-criteria_1">Acceptance Criteria</h5>
+<ul>
+<li>Able to get main information of the clinic from a page.</li>
+</ul>
+<h4 id="us-103-account">US 1.03 -  Account</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As a user I want to be able to make my account with my info and my pets' info in the website.</p>
+</blockquote>
+<h5 id="acceptance-criteria_2">Acceptance Criteria</h5>
+<ul>
+<li>Be able to make account with username and password.</li>
+<li>Be able to view the information on a page.  </li>
+</ul>
+<h4 id="us-104-login">US 1.04 -  Login</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to login to my account.</p>
+</blockquote>
+<h5 id="acceptance-criteria_3">Acceptance Criteria</h5>
+<ul>
+<li>Able to transfer to the page of client's information after putting username and password.</li>
+</ul>
+<h4 id="us-105-logout">US 1.05 -  Logout</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to logout of my account</p>
+</blockquote>
+<h5 id="acceptance-criteria_4">Acceptance Criteria</h5>
+<ul>
+<li>Able to transfer from the page of client's information after clicking "logout" to landing page. </li>
+</ul>
+<h4 id="us-106-booking-service">US 1.06 -  Booking Service</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As a new user, I want to be able to book a service regardless of if I have an account or not.</p>
+</blockquote>
+<h5 id="acceptance-criteria_5">Acceptance Criteria</h5>
+<ul>
+<li>Be able to book an appointment even without logging in.</li>
+</ul>
+<hr />
+<h3 id="client-dashboard">Client Dashboard</h3>
+<h4 id="us-201-view-history">US 2.01 - View History</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As a user, I want to have a dashboard where I can view all my previous and current appointments.</p>
+</blockquote>
+<h5 id="acceptance-criteria_6">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view current appointment on the dashboard page.</li>
+<li>Be able to view the previous appointment on the dashboard page.</li>
+</ul>
+<h4 id="us-202-multiple-pets">US 2.02 - Multiple Pets</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to multiple pets to my account.</p>
+</blockquote>
+<h5 id="acceptance-criteria_7">Acceptance Criteria</h5>
+<ul>
+<li>Be able to search transactions and get a total for the results.</li>
+</ul>
+<h4 id="us-203-filter-appointments">US 2.03 - Filter Appointments</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As a user, I want to be able to filter all the appointments by a pet.</p>
+</blockquote>
+<h5 id="acceptance-criteria_8">Acceptance Criteria</h5>
+<ul>
+<li>Able to view pet's appointments when inputted that pet's name.</li>
+</ul>
+<h4 id="us-204-payment-method">US 2.04 - Payment Method</h4>
+<p>🔴 <em>&nbsp; Would like but won't get</em></p>
+<blockquote>
+<p>As a user, I want to be able to pay for a service through my pet insurance and other payment methods.</p>
+</blockquote>
+<h5 id="acceptance-criteria_9">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view their cash flow for this month</li>
+</ul>
+<h4 id="us-205-reminders">US 2.05 - Reminders</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As a user, I want to receive reminder for my appointments via email.</p>
+</blockquote>
+<h5 id="acceptance-criteria_10">Acceptance Criteria</h5>
+<ul>
+<li>Receive reminders via email</li>
+</ul>
+<h4 id="us-206-client-side-chat">US 2.06 -  Client side Chat</h4>
+<p>🔴 <em>&nbsp; Would like but won't get</em></p>
+<blockquote>
+<p>As a user, I want to be able to chat with the clinic.</p>
+</blockquote>
+<h5 id="acceptance-criteria_11">Acceptance Criteria</h5>
+<ul>
+<li>Chat Box.</li>
+<li>Able to send message in chat.</li>
+<li>Able to receive message in chat.</li>
+</ul>
+<hr />
+<h3 id="admin-dashboard">Admin Dashboard</h3>
+<h4 id="us-301-view-bookings">US 3.01 - View bookings</h4>
+<p>🟢 <em>&nbsp; Must be done</em></p>
+<blockquote>
+<p>As an admin,  I want to see all the bookings made in the website.</p>
+</blockquote>
+<h5 id="acceptance-criteria_12">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view all the bookings made in the dashboard.</li>
+</ul>
+<h4 id="us-302-filter-bookings">US 3.02 - Filter bookings</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to filter the bookings by date range.</p>
+</blockquote>
+<h5 id="acceptance-criteria_13">Acceptance Criteria</h5>
+<ul>
+<li>Be able to filter the bookings made based on date.</li>
+</ul>
+<h4 id="us-303-search-client-profile">US 3.03 - Search client profile</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin,I want to be able to search for a client.</p>
+</blockquote>
+<h5 id="acceptance-criteria_14">Acceptance Criteria</h5>
+<ul>
+<li>Be able to search for a client profile from admin dashboard.</li>
+</ul>
+<h4 id="us-304-view-appointments-in-a-calendar-format">US 3.04 - View appointments in a Calendar format</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to view appointments in a calendar.</p>
+</blockquote>
+<h5 id="acceptance-criteria_15">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view appointments in a calendar format in admin dashboard.</li>
+</ul>
+<h4 id="us-305-availability">US 3.05 - Availability</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to provide availability slots and times for booking.</p>
+</blockquote>
+<h5 id="acceptance-criteria_16">Acceptance Criteria</h5>
+<ul>
+<li>Be able to provide availability slots for users to book.</li>
+</ul>
+<h4 id="us-306-add-staff">US 3.06 - Add staff</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to add staff to the website.</p>
+</blockquote>
+<h5 id="acceptance-criteria_17">Acceptance Criteria</h5>
+<ul>
+<li>Be able to add staff to the admin dashboard.</li>
+</ul>
+<h4 id="us-307-add-staffs-availability">US 3.07 - Add staff's availability</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to distinguishly add staff's availability.</p>
+</blockquote>
+<h5 id="acceptance-criteria_18">Acceptance Criteria</h5>
+<ul>
+<li>Be able to add each staff's availability seperately.</li>
+</ul>
+<h4 id="us-308-view-each-staffs-calendar">US 3.08 - View each staff's calendar</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to distinguishly see a staff's calendar.</p>
+</blockquote>
+<h5 id="acceptance-criteria_19">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view each staff's seperate calendar.</li>
+</ul>
+<h4 id="us-309-sales-info">US 3.09 - Sales info</h4>
+<p>🔴 <em>&nbsp; Would like but won't get</em></p>
+<blockquote>
+<p>As an admin, I want to be able to see my sales info.</p>
+</blockquote>
+<h5 id="acceptance-criteria_20">Acceptance Criteria</h5>
+<ul>
+<li>Be able to view sales info for the clinic.</li>
+</ul>
+<h4 id="us-310-filter-sales-info">US 3.10 - Filter sales info</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to see my sales info.</p>
+</blockquote>
+<h5 id="acceptance-criteria_21">Acceptance Criteria</h5>
+<ul>
+<li>Be able to filter sales info by providing date range.</li>
+</ul>
+<h4 id="us-311-graph-of-sales">US 3.11  - Graph of sales</h4>
+<p>🟠 <em>&nbsp; Could be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to see weekly sales growth in a graph format.</p>
+</blockquote>
+<h5 id="acceptance-criteria_22">Acceptance Criteria</h5>
+<ul>
+<li>Be able to see a graph in dashboard with weekly sales growth data.</li>
+</ul>
+<h4 id="us-312-adddelete-service-booking">US 3.12 - Add/Delete Service Booking</h4>
+<p>🟡 <em>&nbsp; Should be done</em></p>
+<blockquote>
+<p>As an admin, I want to be able to add/ delete servicces for booking.</p>
+</blockquote>
+<h5 id="acceptance-criteria_23">Acceptance Criteria</h5>
+<ul>
+<li>Be able to add or delete services that users can book in user dashboard from admin dashboard.</li>
+</ul>
+<h4 id="us-313-admin-side-chat">US 3.13 - Admin side Chat</h4>
+<p>🔴 <em>&nbsp; Would like but won't get</em></p>
+<blockquote>
+<p>As an admin, I want to be able to be able to reply to messages sent on chat by clients.</p>
+</blockquote>
+<h5 id="acceptance-criteria_24">Acceptance Criteria</h5>
+<ul>
+<li>Be able to reply to messages sent by users in user dashboard from admin dashboard.</li>
+</ul>
+<h2 id="moscow-breakdown">MoSCOW Breakdown</h2>
+<h4 id="must-be-done">Must Be Done</h4>
+<p>🟢 <em>&nbsp;  US 1.01 - Navigation
+🟢 </em>&nbsp;  US 1.02 - Landing Page
+🟢 <em>&nbsp;  US 1.03 - Account
+🟢 </em>&nbsp;  US 1.04 - Login
+🟢 _&nbsp;  US 1.06 - Booking Service</p>
+<p>🟢 _&nbsp;   US 3.01 - View Bookings</p>
+<h3 id="should-be-done">Should Be Done</h3>
+<p>🟡 <em>&nbsp;   US 2.01 - View History
+🟡 </em>&nbsp;   US 2.02 - Multiple Pets
+🟡 _&nbsp;   US 2.05 - Reminders</p>
+<p>🟡 <em>&nbsp;   US 3.02 - Filter Bookings
+🟡 </em>&nbsp;   US 3.03 - Search Client Profile
+🟡 <em>&nbsp;   US 3.04 - View Appointments in a Calendar Format
+🟡 </em>&nbsp;   US 3.05 - Availability
+🟡 <em>&nbsp;   US 3.10 - Filter Sales Info
+🟡 </em>&nbsp;   US 3.12 - Add/Delete Service Booking</p>
+<h3 id="could-be-done">Could Be Done</h3>
+<p>🟠 _&nbsp;  US 1.05 - Logout</p>
+<p>🟠 _&nbsp;  US 2.03 - Filter Appointments</p>
+<p>🟠 <em>&nbsp;  US 3.06 - Add Staff
+🟠 </em>&nbsp;  US 3.07 - Add Staff's Availability
+🟠 <em>&nbsp;  US 3.08 - Each Staff's Calendar
+🟠 </em>&nbsp;  US 3.11 - Graph of Sales</p>
+<h3 id="would-like-but-wont-get">Would Like But Won't Get</h3>
+<p>🔴 <em>&nbsp;  US 2.04 - Payment Method
+🔴 </em>&nbsp;  US 2.06 - Client Side Chat</p>
+<p>🔴 <em>&nbsp;  US 3.09 - Sales Info
+🔴 </em>&nbsp;  US 3.13 - Admin Side Chat</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../software_design_requirements/" class="btn btn-neutral float-right" title="Software Design Requirements">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../project_management/" class="btn btn-neutral" title="Project Management"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../project_management/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../software_design_requirements/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
