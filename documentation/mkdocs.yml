@@ -1,12 +1,12 @@
-site_name: My Docs
+site_name: Vet Clinic Booking System
 
 theme:
-  name: gitbook
+  name: readthedocs
 
 nav:
     - About: index.md 
-    - Client Meeting Minutes: Client Meeting Minutes.md
-    - Project Management: Project Management.md
-    - Project Requirements: Project Requirements.md
-    - Software Design Requirements: Software Design Requirements.md
+    - Client Meeting Minutes: client_meeting_minutes.md
+    - Project Management: project_management.md
+    - Project Requirements: project_requirements.md
+    - Software Design Requirements: software_design_requirements.md
     

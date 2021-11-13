@@ -1,0 +1,10 @@
+# env file
+server/.env
+
+# node modules dependencies
+server/node_modules/
+server/node_modules/.*
+
+#DS_Store
+.DS_Store
+server/.DS_Store
