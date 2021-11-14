@@ -79,7 +79,7 @@ router.post('/', async (req, res) => {
  */
 router.get('/:bookingId', async (req, res) => {
     try {
-        const booking = await Booking.findById(req.params.serviceId);
+        const booking = await Booking.findById(req.params.bookingId);
         res.json(booking);
     } catch (err) {
         res.json({ message: err });
