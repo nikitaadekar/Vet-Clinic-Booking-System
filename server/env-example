@@ -1,0 +1,2 @@
+DB_CONNECTION = mongodb+srv://nikita:database1234@booking.h4yi9.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+TOKEN_SECRET = computersaregreat

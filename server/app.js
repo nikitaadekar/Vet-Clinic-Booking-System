@@ -14,6 +14,9 @@ import swaggerUi from "swagger-ui-express";
 //Import Routes
 import ServicesRoute from "./routes/services.js";
 import BookingsRoute from "./routes/bookings.js";
+import AuthRoute from "./routes/auth.js";
+
+
 
 
 
@@ -42,6 +45,8 @@ app.use(Cors());
 app.use(bodyParser.json());
 app.use('/services',ServicesRoute);
 app.use('/bookings',BookingsRoute);
+app.use('/user',AuthRoute);
+
 
 
 //Connect to DB
