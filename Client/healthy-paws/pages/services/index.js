@@ -1,5 +1,4 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
 import Image from 'next/image'
 import { useState } from 'react';
 
@@ -15,6 +14,8 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Button from '@mui/material/Button';
+
 
 
 const bull = (
@@ -85,9 +86,9 @@ export default function Services() {
                 }
             </div>
 
-            <div className="flex flex-col max-w-xs">
+            <div className="flex flex-col max-w-xs 	">
                 {/* Booking form */}
-                <Typography variant="h6" className="mt-20 ml-5" component="div" sx={{ flexGrow: 1 }}>
+                <Typography variant="h6" className="mt-20 ml-5 " component="div" sx={{ flexGrow: 1 }}>
                     Booking Details
                 </Typography>
 
@@ -120,6 +121,7 @@ export default function Services() {
                     className="ml-5 mt-3"
                 />
 
+                {/* Pet Type */}
                 <Box sx={{ maxWidth: 120 }} className="ml-5 mt-4">
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pet type</InputLabel>
@@ -136,7 +138,28 @@ export default function Services() {
                         </Select>
                     </FormControl>
                 </Box>
+
+                {/* Pet Age by categories */}
+                <FormControl fullWidth sx={{ maxWidth: 300 }} className="ml-5 mt-4">
+                    <InputLabel id="demo-simple-select-label">Pet Age</InputLabel>
+                    <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        label="Pet Age"
+
+                    >
+                        <MenuItem value={"< 0.5"}>Less than 6 months</MenuItem>
+                        <MenuItem value={"0.5-2"}>Between 6 months and 2 years</MenuItem>
+                        <MenuItem value={"2-10"}>Between 2 years and 10 years</MenuItem>
+                        <MenuItem value={"10+"}>10 years and older</MenuItem>
+
+                    </Select>
+                </FormControl>
+
+
             </div>
+
+            <Button variant="contained" size="large" className="mb-20 mt-10 ml-40">Book Now</Button>
 
         </main>
 
