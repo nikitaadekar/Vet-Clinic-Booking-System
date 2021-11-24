@@ -22,8 +22,9 @@ export default function NavBar() {
                          <Button className="ml-10" color="inherit">Services</Button>
                         </Link>
                     </Typography>
-
+                    <Link href="/login">
                     <Button className="mr-10" color="inherit">Login</Button>
+                    </Link>
                 </Toolbar>
             </AppBar>
         </Box>
