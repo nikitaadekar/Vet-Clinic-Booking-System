@@ -1,5 +1,6 @@
 import Express from "express";
 import Service from '../models/Service.js';
+import Verifier from "./verifyToken.js";
 
 const router = Express.Router();
 
@@ -7,7 +8,6 @@ const router = Express.Router();
 /**
  * @swagger
  * /services:
- *  
  *  get:
  *      description: Use to request all services.
  *      responses:
@@ -38,7 +38,8 @@ router.get('/', async (req, res) => {
  *      tags: 
  *          - services
  */
-router.post('/', async (req, res) => {
+//protected
+router.post('/',Verifier, async (req, res) => {
     const service = new Service({
         name: req.body.name,
         description: req.body.description,
@@ -75,7 +76,8 @@ router.post('/', async (req, res) => {
  *      tags: 
  *          - services
  */
-router.get('/:serviceId', async(req,res) => {
+
+router.get('/:serviceId',Verifier, async(req,res) => {
     try{ 
         const service = await Service.findById(req.params.serviceId);
         res.json(service);
@@ -105,7 +107,8 @@ router.get('/:serviceId', async(req,res) => {
  *      tags: 
  *          - services
  */
-router.delete('/:serviceId', async (req, res) => {
+//protected
+router.delete('/:serviceId',Verifier, async (req, res) => {
     try{
         const removedService = await Service.remove({_id: req.params.serviceId});
         res.json(removedService);
@@ -135,7 +138,7 @@ router.delete('/:serviceId', async (req, res) => {
  *      tags: 
  *          - services
  */
-router.patch('/:serviceId', async (req, res) => {
+router.patch('/:serviceId',Verifier, async (req, res) => {
     try{
         const updatedService = await Service.updateOne({_id: req.params.serviceId}, 
             {$set: {name: req.body.name, description: req.body.description, cost: req.body.cost}});
