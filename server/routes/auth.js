@@ -70,7 +70,7 @@ router.post('/login', async (req, res) => {
     //Create and assign a  Token 
 
     const token = JsonWebToken.sign({_id: loginUser},process.env.TOKEN_SECRET);
-    res.header('authToken',token ).send(token);
+    res.header('auth-token',token ).send(token);
     
     
 

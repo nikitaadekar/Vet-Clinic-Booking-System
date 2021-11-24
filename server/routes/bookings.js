@@ -1,5 +1,7 @@
 import Express from "express";
 import Booking from '../models/Booking.js';
+import Verifier from "./verifyToken.js";
+
 
 const router = Express.Router();
 
@@ -77,7 +79,8 @@ router.post('/', async (req, res) => {
  *      tags: 
  *          - bookings
  */
-router.get('/:bookingId', async (req, res) => {
+//protected
+router.get('/:bookingId', Verifier, async (req, res) => {
     try {
         const booking = await Booking.findById(req.params.bookingId);
         res.json(booking);
@@ -107,7 +110,8 @@ router.get('/:bookingId', async (req, res) => {
  *      tags: 
  *          - bookings
  */
-router.delete('/:bookingId', async (req, res) => {
+//protected
+router.delete('/:bookingId', Verifier, async (req, res) => {
     try {
         const removedBooking = await Booking.remove({ _id: req.params.bookingId });
         res.json(removedBooking);
@@ -137,7 +141,9 @@ router.delete('/:bookingId', async (req, res) => {
  *      tags: 
  *          - bookings
  */
-router.patch('/:bookingId', async (req, res) => {
+
+//protected
+router.patch('/:bookingId', Verifier, async (req, res) => {
     try {
         const updatedBooking = await Booking.updateOne({ _id: req.params.bookingId },
             {
