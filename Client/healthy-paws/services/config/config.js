@@ -1,3 +1,3 @@
-const apiConfig = {
-    url:"localhost:4000"
+export const apiConfig = {
+    url:"http://localhost:4000"
 }
