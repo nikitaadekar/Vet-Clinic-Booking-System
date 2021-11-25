@@ -1,5 +1,5 @@
 
-# Weekly Client Meeting - VetProject
+# Weekly Client Meeting #3 - VetProject
 Thursday, 18.11.2021
 ─
 # Attendees
@@ -18,14 +18,35 @@ Vision for Frontend
 Demo Backend : User end points, Services end point, Booking end points (These 3 are all end points required for full project)
 Demo Frontend : Landing Page, Login Page, Sign Up Page, Service Booking Page, Booking list Admin Dashboard Page (These are 75% of frontend pages for full MVP)
 
-### Agenda - 28th October 2021
-To Discuss Client’s Requirements
+
+# Weekly Client Meeting #2 - VetProject
+
+# Attendees
+Dr. Ildar Akhmetov, Client 
+Nikita Adekar, Developer
+
+# Agenda
+User Story Clarifications:-
+de-prioritize all sales info user stories
+
  
-### Meeting Minutes
+## Next Meeting Agenda Items
+Demo Sprint 2
+
+# Weekly Client Meeting #1 - VetProject
+Thursday, 28.10.2021
+─
+# Attendees
+Dr. Ildar Akhmetov, Client 
+Nikita Adekar, Developer
+
+# Agenda
+Requirements:- 
 Want to be a web browser.
 Want maintainability so use popular techstack
 Contact via email only. 
 
 
-### Action Items
+ 
+## Next Meeting Agenda Items
 Send Salon’s Website Screenshot reference. 
