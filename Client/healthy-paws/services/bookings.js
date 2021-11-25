@@ -3,7 +3,7 @@ import {apiConfig} from './config/config';
 
 export class BookingService{
     constructor(){
-        this.url = config.url;
+        this.url = apiConfig.url;
 
         this.config = {
             bookings:"/bookings"
@@ -14,9 +14,10 @@ export class BookingService{
      * get bookings
      */
 
-    getBooking(){
+    getBooking(authToken){
         return axios({
             method: 'GET',
+            headers:{'Content-Type':'application/json', 'auth-token': authToken},
             url: this.url + this.config.bookings
         })
     }
@@ -27,6 +28,7 @@ export class BookingService{
     addBooking(data){
         return axios({
             method: 'POST',
+            headers:{'Content-Type':'application/json'},
             url: this.url + this.config.bookings,
             data: data
 

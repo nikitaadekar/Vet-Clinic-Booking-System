@@ -1,24 +1,24 @@
 import axios from 'axios';
 import {apiConfig} from './config/config';
 
-export class ServicesService{
+export class AuthService{
     constructor(){
         this.url = apiConfig.url;
 
         this.config = {
-            services:"/services"
+            login:"/user/login",
         }
     }
 
     /**
-     * get services
+     * get bookings
      */
 
-    getServices(){
+    login(){
         return axios({
-            method: 'GET',
+            method: 'POST',
             headers:{'Content-Type':'application/json'},
-            url: this.url + this.config.services
+            url: this.url + this.config.bookings
         })
     }
 

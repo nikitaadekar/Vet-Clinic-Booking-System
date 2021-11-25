@@ -1,6 +1,6 @@
 import * as React from 'react';
-import Image from 'next/image'
 import { useState } from 'react';
+import Link from 'next/link'
 
 import NavBar from '../../components/NavBar';
 
@@ -15,6 +15,7 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
+import { BookingService, ServicesService } from '../../services';
 
 
 
@@ -28,34 +29,34 @@ const bull = (
 );
 
 
-export default function Services() {
+export default function Services({services}) {
+    // init api
+    const bookingService = new BookingService;
+    // states for form
     const [selectedService, setSelectedService] = useState(0);
+    const [name, setName] = useState("");
+    const [phNo, setPhNo] = useState("");
+    const [email, setEmail] = useState("");
+    const [petName, setPetName] = useState("");
+    const [petType, setPetType] = useState("");
+    const [petAge, setPetAge] = useState("");
 
-
-
-    const [services, setServices] = useState([
-        {
-            id: 1,
-            title: "service1",
-            cost: 20,
-            description: "I am a service 1"
-        },
-        {
-            id: 2,
-            title: "service2",
-            cost: 30,
-            description: "I am a service 2"
-        },
-        {
-            id: 3,
-            title: "service3",
-            cost: 40,
-            description: "I am a service 3"
+    const addBooking= async () =>{
+        const data ={
+            clinetInformation : {
+                clientName: name,
+                clientPhone: phNo,
+                petName: petName,
+                petType: petType
+            },
+            serviceId:selectedService
         }
-
-    ]);
-
-
+        try{
+            const res = await bookingService.addBooking(data);
+        }catch(e){
+            console.log(e);
+        }
+    }
     return (
         <main>
             {/* Navbar */}
@@ -68,10 +69,10 @@ export default function Services() {
             <div className="md:flex">
                 {services.map((service, i) => {
                     return (
-                        <Card className="ml-5 mt-5" onClick={() => setSelectedService(service.id)} style={{ background: service.id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
+                        <Card className="ml-5 mt-5" onClick={() => setSelectedService(service._id)} style={{ background: service._id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
                             <CardContent>
                                 <Typography variant="h6" component="div">
-                                    Service: {service.title}
+                                    Service: {service.name}
                                 </Typography>
                                 <Typography variant="body2">
                                     Description: {service.description}
@@ -97,6 +98,8 @@ export default function Services() {
                     label="Full Name"
                     variant="standard"
                     className="ml-5 mt-2"
+                    value={name}
+                    onChange={(e)=>setName(e.target.value)}
                 />
 
                 <TextField
@@ -105,6 +108,9 @@ export default function Services() {
                     variant="standard"
                     className="ml-5 mt-3"
                     type="number"
+                    value={phNo}
+                    onChange={(e)=>setPhNo(e.target.value)}
+
                 />
 
                 <TextField
@@ -112,6 +118,9 @@ export default function Services() {
                     label="Email"
                     variant="standard"
                     className="ml-5 mt-3"
+                    value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
+
                 />
 
                 <TextField
@@ -119,6 +128,9 @@ export default function Services() {
                     label="Pet name"
                     variant="standard"
                     className="ml-5 mt-3"
+                    value={petName}
+                    onChange={(e)=>setPetName(e.target.value)}
+
                 />
 
                 {/* Pet Type */}
@@ -126,9 +138,12 @@ export default function Services() {
                     <FormControl fullWidth>
                         <InputLabel id="demo-simple-select-label">Pet type</InputLabel>
                         <Select
+                            value={petType}
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             label="Pet type"
+                            onChange={(e)=>setPetType(e.target.value)}
+
                         >
                             <MenuItem value={"dog"}>Dog</MenuItem>
                             <MenuItem value={"cat"}>Cat</MenuItem>
@@ -146,6 +161,8 @@ export default function Services() {
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         label="Pet Age"
+                        value={petAge}
+                        onChange={(e)=>setPetAge(e.target.value)}
 
                     >
                         <MenuItem value={"< 0.5"}>Less than 6 months</MenuItem>
@@ -158,11 +175,29 @@ export default function Services() {
 
 
             </div>
-
-            <Button variant="contained" size="large" className="mb-20 mt-10 ml-40">Book Now</Button>
-
+            <Link href="/">
+                <Button variant="contained" onClick={addBooking} disabled={!(selectedService!==0 && name && phNo && petAge && petType && email)} size="large" className="mb-20 mt-10 ml-40">Book Now</Button>
+            </Link>
         </main>
 
     );
 }
 
+export async function getServerSideProps(context) {
+    const servicesService = new ServicesService;
+    try{
+        const res = (await servicesService.getServices());
+        const services = res.data;
+        return {
+            props: {
+                services: services
+            }, // will be passed to the page component as props
+          }
+    }catch(e){
+        console.log(e);
+        return {
+            props: {}, // will be passed to the page component as props
+          }
+    }
+
+  }
