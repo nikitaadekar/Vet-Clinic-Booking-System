@@ -1,4 +1,33 @@
 
+
+# Weekly Client Meeting - VetProject
+Friday, 04.12.2021
+─
+# Attendees
+Dr. Ildar Akhmetov, Client 
+Nikita Adekar, Developer
+
+# Agenda
+## Last Meeting Follow-up
+Endpoints of the prototype (services, booking, and user)  have been completed. Login Page & Sign up , Services Page, Dashboard Page are up. Just need to connect everything and write tests. 
+
+## New Business
+Problem about deployment project on Cybera. Can I deploy on Herokku? 
+Yes
+Sprint 4 Demo availability after 3 pm
+Healthy Paws name is good.
+
+## Action Items
+Integrate everything. 
+Try deploying on Cybera if not Herokku is fine. 
+Screencast. 
+Ask TA about their availability after 3 pm. 
+
+## Next Meeting Agenda Items
+Presentation.
+
+
+
 # Weekly Client Meeting #3 - VetProject
 Thursday, 18.11.2021
 ─
