@@ -80,7 +80,8 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent() {
+function DashboardContent({token}) {
+    console.log(token)
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -168,6 +169,27 @@ function DashboardContent() {
     );
 }
 
-export default function Dashboard() {
-    return <DashboardContent />;
+export default function Dashboard({token}) {
+    return <DashboardContent token={token} />;
 }
+
+export async function getServerSideProps(context) {
+    try{
+        const tokenCookie = context.req.headers.cookie;
+        const token = tokenCookie.slice(6);
+        return {
+            props: {
+                token:token
+            }, // will be passed to the page component as props
+          }
+    }catch(e){
+        return {
+            redirect: {
+                permanent:false,
+                destination:"/login",
+            },
+            props: {}
+          }
+    }
+
+  }

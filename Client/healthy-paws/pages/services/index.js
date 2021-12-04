@@ -53,7 +53,6 @@ export default function Services({services}) {
         }
         try{
             const res = await bookingService.addBooking(data);
-            console.log(res);
         }catch(e){
             console.log(e);
         }
