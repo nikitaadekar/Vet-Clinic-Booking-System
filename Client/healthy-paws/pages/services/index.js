@@ -43,7 +43,7 @@ export default function Services({services}) {
 
     const addBooking= async () =>{
         const data ={
-            clinetInformation : {
+            clientInformation : {
                 clientName: name,
                 clientPhone: phNo,
                 petName: petName,
@@ -53,6 +53,7 @@ export default function Services({services}) {
         }
         try{
             const res = await bookingService.addBooking(data);
+            console.log(res);
         }catch(e){
             console.log(e);
         }

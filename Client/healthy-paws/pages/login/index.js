@@ -11,6 +11,9 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { AuthService } from '../../services';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 function Copyright(props) {
   return (
@@ -28,15 +31,40 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function SignIn() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
+  const router = useRouter()
 
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  // error state
+  const [error, setError] = useState(false);
+
+  // init api
+  const authService = new AuthService;
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    // get form data
+    const data = new FormData(event.currentTarget);
+
+    // fetching email and password fields
+    const email = data.get('email');
+    const password = data.get('password');
+
+
+    try{
+
+      // posting to api to get auth token
+      const resToken = await authService.login({email:email, password:password});
+      const token = resToken.data;
+    
+      // set token as cookie
+      authService.setTokenCookie(token);
+      setError(false);
+      router.push("/dashboard")
+
+    }catch(e){
+      setError(true);
+    }
+
   };
 
   return (
@@ -78,7 +106,7 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            
+            {error && <h4 className="italic mt-3 text-red-600">Login Information is not correct!</h4>}
             <Button
               type="submit"
               fullWidth
@@ -89,9 +117,9 @@ export default function SignIn() {
             </Button>
             <Grid container>
               <Grid item>
-                <Link href="/signup" variant="body2">
+                {/* <Link href="/signup" variant="body2">
                   {"Don't have an account? Sign Up"}
-                </Link>
+                </Link> */}
               </Grid>
             </Grid>
           </Box>
