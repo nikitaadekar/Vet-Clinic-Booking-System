@@ -59,6 +59,7 @@ export default function SignIn() {
       // set token as cookie
       authService.setTokenCookie(token);
       setError(false);
+      console.log( await authService.getTokenCookie());
       router.push("/dashboard")
 
     }catch(e){
