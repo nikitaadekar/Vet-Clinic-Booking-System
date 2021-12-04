@@ -11,7 +11,7 @@ const BookingSchema = Mongoose.Schema({
                 required: true
             },
             clientPhone: {
-                type: Number,
+                type: String,
                 required: true
             },
             petName: {
@@ -31,7 +31,6 @@ const BookingSchema = Mongoose.Schema({
     },
     status:{
         type: String,
-        required: true
 
     }
 });
