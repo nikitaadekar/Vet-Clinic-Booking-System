@@ -18,7 +18,7 @@ const router = Express.Router();
  *      tags: 
  *          - bookings
  */
-router.get('/', async (req, res) => {
+router.get('/', Verifier, async (req, res) => {
     try {
         const bookings = await Booking.find();
         res.json(bookings);
@@ -45,7 +45,8 @@ router.post('/', async (req, res) => {
         serviceId: req.body.serviceId,
         clientInformation: req.body.clientInformation,
         bookedTime: req.body.bookedTime,
-        status: req.body.status
+        serviceName: req.body.serviceName,
+
 
     });
     try {

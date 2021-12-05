@@ -29,33 +29,68 @@ const bull = (
 );
 
 
-export default function Services({services}) {
+export default function Services({ services }) {
     // init api
     const bookingService = new BookingService;
+
+    // date error
+    const [dateError, setDateError] = useState(false);
+
     // states for form
     const [selectedService, setSelectedService] = useState(0);
+    const [selectedServiceName, setSelectedServiceName] = useState("");
     const [name, setName] = useState("");
     const [phNo, setPhNo] = useState("");
     const [email, setEmail] = useState("");
     const [petName, setPetName] = useState("");
     const [petType, setPetType] = useState("");
     const [petAge, setPetAge] = useState("");
+    const [appointmentTime, setAppointmentTime] = useState("");
 
-    const addBooking= async () =>{
-        const data ={
-            clientInformation : {
+    // booking confirmed state
+    const [bookingConfirmed, setBookingConfirmed] = useState(false);
+
+
+    const addBooking = async () => {
+        const data = {
+            clientInformation: {
                 clientName: name,
                 clientPhone: phNo,
                 petName: petName,
-                petType: petType
+                petType: petType,
+                clientEmail: email
             },
-            serviceId:selectedService
+            serviceName: selectedServiceName,
+            serviceId: selectedService,
+            bookedTime: appointmentTime
         }
-        try{
+        try {
             const res = await bookingService.addBooking(data);
-        }catch(e){
+            console.log(res)
+            setBookingConfirmed(true)
+        } catch (e) {
             console.log(e);
         }
+    }
+
+    const selectService = (id, name) => {
+        setSelectedService(id);
+        setSelectedServiceName(name);
+    }
+
+    const checkAppointmentTime = (time) =>{
+        // checking date and time
+        const bookingTime = parseInt(time.slice(11,13));
+        const todaysDate = new Date();
+        const pickedDate = new Date(time);
+
+        if((pickedDate > todaysDate) && (bookingTime >= 9 && bookingTime <= 17)){
+            setAppointmentTime(time);
+            setDateError(false);
+        }else{
+            setDateError(true);
+        }
+
     }
     return (
         <main>
@@ -69,7 +104,7 @@ export default function Services({services}) {
             <div className="md:flex">
                 {services.map((service, i) => {
                     return (
-                        <Card className="ml-5 mt-5" onClick={() => setSelectedService(service._id)} style={{ background: service._id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
+                        <Card key={i} className="ml-5 mt-5" onClick={() => selectService(service._id, service.name)} style={{ background: service._id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     Service: {service.name}
@@ -99,7 +134,7 @@ export default function Services({services}) {
                     variant="standard"
                     className="ml-5 mt-2"
                     value={name}
-                    onChange={(e)=>setName(e.target.value)}
+                    onChange={(e) => setName(e.target.value)}
                 />
 
                 <TextField
@@ -109,7 +144,7 @@ export default function Services({services}) {
                     className="ml-5 mt-3"
                     type="number"
                     value={phNo}
-                    onChange={(e)=>setPhNo(e.target.value)}
+                    onChange={(e) => setPhNo(e.target.value)}
 
                 />
 
@@ -119,7 +154,7 @@ export default function Services({services}) {
                     variant="standard"
                     className="ml-5 mt-3"
                     value={email}
-                    onChange={(e)=>setEmail(e.target.value)}
+                    onChange={(e) => setEmail(e.target.value)}
 
                 />
 
@@ -129,7 +164,7 @@ export default function Services({services}) {
                     variant="standard"
                     className="ml-5 mt-3"
                     value={petName}
-                    onChange={(e)=>setPetName(e.target.value)}
+                    onChange={(e) => setPetName(e.target.value)}
 
                 />
 
@@ -142,7 +177,7 @@ export default function Services({services}) {
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             label="Pet type"
-                            onChange={(e)=>setPetType(e.target.value)}
+                            onChange={(e) => setPetType(e.target.value)}
 
                         >
                             <MenuItem value={"dog"}>Dog</MenuItem>
@@ -162,7 +197,7 @@ export default function Services({services}) {
                         id="demo-simple-select"
                         label="Pet Age"
                         value={petAge}
-                        onChange={(e)=>setPetAge(e.target.value)}
+                        onChange={(e) => setPetAge(e.target.value)}
 
                     >
                         <MenuItem value={"< 0.5"}>Less than 6 months</MenuItem>
@@ -173,11 +208,25 @@ export default function Services({services}) {
                     </Select>
                 </FormControl>
 
-
+                <TextField
+                    id="datetime-local"
+                    label="Appointment date and time"
+                    type="datetime-local"
+                    value={appointmentTime}
+                    onChange={(e) => checkAppointmentTime(e.target.value)}
+                    className="mt-4 ml-5"
+                    sx={{ width: 250 }}
+                    InputLabelProps={{
+                        shrink: true,
+                    }}
+                />
+                {dateError && <h4 className="italic mt-4 ml-5 text-red-400">Date must be after today and time must be between 9 am to 5 pm!</h4>}
             </div>
-            <Link href="/">
-                <Button variant="contained" onClick={addBooking} disabled={!(selectedService!==0 && name && phNo && petAge && petType && email)} size="large" className="mb-20 mt-10 ml-40">Book Now</Button>
-            </Link>
+                <Button variant="contained" onClick={addBooking} disabled={!(selectedService !== 0 && name && phNo && petAge && petType && email)} size="large" className="mt-10 mb-4 ml-40">Book Now</Button>
+
+                {/* booking confirmed message */}
+                { bookingConfirmed && <h2 className="italic ml-5 mb-20 text-green-400 font-bold">Your booking is confirmed! See you and your FurBaby Soon!</h2>}
+
         </main>
 
     );
@@ -185,19 +234,19 @@ export default function Services({services}) {
 
 export async function getServerSideProps(context) {
     const servicesService = new ServicesService;
-    try{
+    try {
         const res = (await servicesService.getServices());
         const services = res.data;
         return {
             props: {
                 services: services
             }, // will be passed to the page component as props
-          }
-    }catch(e){
+        }
+    } catch (e) {
         console.log(e);
         return {
             props: {}, // will be passed to the page component as props
-          }
+        }
     }
 
-  }
+}

@@ -17,7 +17,9 @@ export default function NavBar() {
                 <Toolbar>
                     <Typography variant="h6" className="font-serif" component="div" sx={{ flexGrow: 1 }}>
                         Healthy 🐾
+                        <Link href="/">
                         <Button className="ml-10" color="inherit" >Home</Button>
+                        </Link>
                         <Link href="/services">
                          <Button className="ml-10" color="inherit">Services</Button>
                         </Link>

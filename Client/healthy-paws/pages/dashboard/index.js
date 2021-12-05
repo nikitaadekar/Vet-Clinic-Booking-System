@@ -17,6 +17,7 @@ import BookIcon from '@mui/icons-material/Book';
 
 // import table
 import Table from '../../components/Table';
+import { BookingService } from '../../services/bookings';
 
 
 function Copyright(props) {
@@ -80,8 +81,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-function DashboardContent({token}) {
-    console.log(token)
+function DashboardContent({bookings}) {
     const [open, setOpen] = React.useState(true);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -157,7 +157,7 @@ function DashboardContent({token}) {
                     }}
                 >
                     <Toolbar />
-                    <Table />
+                    <Table bookings={bookings}/>
                     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
                         {/* Table */}
 
@@ -169,17 +169,20 @@ function DashboardContent({token}) {
     );
 }
 
-export default function Dashboard({token}) {
-    return <DashboardContent token={token} />;
+export default function Dashboard({bookings}) {
+    return <DashboardContent bookings={bookings} />;
 }
 
 export async function getServerSideProps(context) {
+    const bookingService = new BookingService;
     try{
         const tokenCookie = context.req.headers.cookie;
         const token = tokenCookie.slice(6);
+        const bookingRes = await bookingService.getBooking(token);
+        const bookings = bookingRes.data;
         return {
             props: {
-                token:token
+                bookings:bookings
             }, // will be passed to the page component as props
           }
     }catch(e){
