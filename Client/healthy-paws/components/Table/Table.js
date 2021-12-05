@@ -277,7 +277,7 @@ export default function EnhancedTable({bookings}) {
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
-                      key={row.name}
+                      key={row._id}
                       selected={isItemSelected}
                     >
 
@@ -285,7 +285,6 @@ export default function EnhancedTable({bookings}) {
                         component="th"
                         id={labelId}
                         scope="row"
-                        padding="checkBox"
                       >
                         {formatTime(row.bookedTime)}
                       </TableCell>

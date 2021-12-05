@@ -47,6 +47,10 @@ export default function Services({ services }) {
     const [petAge, setPetAge] = useState("");
     const [appointmentTime, setAppointmentTime] = useState("");
 
+    // booking confirmed state
+    const [bookingConfirmed, setBookingConfirmed] = useState(false);
+
+
     const addBooking = async () => {
         const data = {
             clientInformation: {
@@ -63,6 +67,7 @@ export default function Services({ services }) {
         try {
             const res = await bookingService.addBooking(data);
             console.log(res)
+            setBookingConfirmed(true)
         } catch (e) {
             console.log(e);
         }
@@ -99,7 +104,7 @@ export default function Services({ services }) {
             <div className="md:flex">
                 {services.map((service, i) => {
                     return (
-                        <Card className="ml-5 mt-5" onClick={() => selectService(service._id, service.name)} style={{ background: service._id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
+                        <Card key={i} className="ml-5 mt-5" onClick={() => selectService(service._id, service.name)} style={{ background: service._id == selectedService ? '#87CEEB' : 'white' }} sx={{ maxWidth: 275 }}>
                             <CardContent>
                                 <Typography variant="h6" component="div">
                                     Service: {service.name}
@@ -209,7 +214,6 @@ export default function Services({ services }) {
                     type="datetime-local"
                     value={appointmentTime}
                     onChange={(e) => checkAppointmentTime(e.target.value)}
-                    defaultValue="2017-05-24T10:30"
                     className="mt-4 ml-5"
                     sx={{ width: 250 }}
                     InputLabelProps={{
@@ -218,9 +222,11 @@ export default function Services({ services }) {
                 />
                 {dateError && <h4 className="italic mt-4 ml-5 text-red-400">Date must be after today and time must be between 9 am to 5 pm!</h4>}
             </div>
-            <Link href="/">
-                <Button variant="contained" onClick={addBooking} disabled={!(selectedService !== 0 && name && phNo && petAge && petType && email)} size="large" className="mb-20 mt-10 ml-40">Book Now</Button>
-            </Link>
+                <Button variant="contained" onClick={addBooking} disabled={!(selectedService !== 0 && name && phNo && petAge && petType && email)} size="large" className="mt-10 mb-4 ml-40">Book Now</Button>
+
+                {/* booking confirmed message */}
+                { bookingConfirmed && <h2 className="italic ml-5 mb-20 text-green-400 font-bold">Your booking is confirmed! See you and your FurBaby Soon!</h2>}
+
         </main>
 
     );
