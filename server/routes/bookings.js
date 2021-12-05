@@ -18,7 +18,7 @@ const router = Express.Router();
  *      tags: 
  *          - bookings
  */
-router.get('/', async (req, res) => {
+router.get('/', Verifier, async (req, res) => {
     try {
         const bookings = await Booking.find();
         res.json(bookings);
