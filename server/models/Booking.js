@@ -1,7 +1,12 @@
 import Mongoose from "mongoose";
+import Joi from "joi";
 
 const BookingSchema = Mongoose.Schema({
     serviceId: {
+        type: String,
+        required: true
+    },
+    serviceName: {
         type: String,
         required: true
     },
@@ -13,6 +18,11 @@ const BookingSchema = Mongoose.Schema({
             clientPhone: {
                 type: String,
                 required: true
+            },
+            clientEmail: {
+                type: String, 
+                required: true
+
             },
             petName: {
                 type: String,
@@ -26,13 +36,11 @@ const BookingSchema = Mongoose.Schema({
         required: true
     },
     bookedTime: {
-        type: Date,
-        default: Date.now
-    },
-    status:{
         type: String,
-
-    }
+        required: true
+    },
+    
+    
 });
 
 export default Mongoose.model('Bookings', BookingSchema);

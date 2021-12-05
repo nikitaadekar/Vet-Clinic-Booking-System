@@ -45,7 +45,8 @@ router.post('/', async (req, res) => {
         serviceId: req.body.serviceId,
         clientInformation: req.body.clientInformation,
         bookedTime: req.body.bookedTime,
-        status: req.body.status
+        serviceName: req.body.serviceName,
+
 
     });
     try {
