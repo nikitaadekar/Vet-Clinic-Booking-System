@@ -51,7 +51,7 @@ app.use('/user',AuthRoute);
 
 //Connect to DB
 Mongoose.connect(process.env.DB_CONNECTION,() =>{
-    console.log('Connected to DB bro')
+    console.log('Connected to DB')
 })
 
 //listening to the server
